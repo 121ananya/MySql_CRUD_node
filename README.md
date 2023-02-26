@@ -6,6 +6,8 @@
 ![image](https://user-images.githubusercontent.com/65679502/221427209-03ff7341-1e1e-4f96-9ce6-fab8795c240d.png)
 #Deleting contact id = 4
 ![image](https://user-images.githubusercontent.com/65679502/221428119-3cddf8f4-18bb-4be1-909b-ccb4acee6867.png)
+#Inserting Data 
+![image](https://user-images.githubusercontent.com/65679502/221428995-5f52f582-21c2-44af-8300-381d62c4b728.png)
 
 
 #to get particular contact id
