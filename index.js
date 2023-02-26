@@ -1,4 +1,4 @@
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const express = require('express');
 var app = express();
 const bodyparser = require('body-parser');
@@ -7,9 +7,9 @@ app.use(bodyparser.json());
 
 var mysqlConnection = mysql.createConnection({
     host: 'localhost',
-    user: 'newuser',
-    password: 'Newuser12',
-    database: 'contacts'
+    user: 'root',
+    password: 'Y1012Jqkhkp',
+    database: 'contact_crm_db'
 });
 
 mysqlConnection.connect((err) => {
@@ -25,7 +25,8 @@ app.listen(3000, () => console.log('Express server is runnig at port no : 3000')
 
 //Get all contacts
 app.get('/contacts', (req, res) => {
-    mysqlConnection.query('SELECT * FROM contactstable', (err, rows) => {
+    mysqlConnection.query('SELECT * FROM ContactsTB1', (err, rows) => {
+    console.log('rows :', rows);
         if (!err){
             res.send(rows);
         }
@@ -36,7 +37,7 @@ app.get('/contacts', (req, res) => {
 
 //Get an contacts
 app.get('/contacts/:id', (req, res) => {
-    mysqlConnection.query('SELECT * FROM contactstable WHERE id = ?', [req.params.id], (err, rows, fields) => {
+    mysqlConnection.query('SELECT * FROM ContactsTB1 WHERE id = ?', [req.params.id], (err, rows, fields) => {
         if (!err)
             res.send(rows);
         else
@@ -46,7 +47,7 @@ app.get('/contacts/:id', (req, res) => {
 
 //Delete an contacts
 app.delete('/contacts/:id', (req, res) => {
-    mysqlConnection.query('DELETE FROM contactstable WHERE id = ?', [req.params.id], (err, rows, fields) => {
+    mysqlConnection.query('DELETE FROM ContactsTB1 WHERE id = ?', [req.params.id], (err, rows, fields) => {
         if (!err)
             res.send('Deleted successfully.');
         else
